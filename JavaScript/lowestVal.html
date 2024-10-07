@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Data Structure & Algorithm using JavaScript</title>
+    </head>
+</html>
+
+<body>
+    <h2>The lowest value is <span id="lowestVal"></span></h2>
+
+    <br>
+
+    <h2>The second largest value is <span id="secondLargest"></span></h2>
+
+    <br>
+
+    <h2>The second lowest value is <span id="secondLowest"></span></h2>
+
+    <br>
+
+    <h2>The largest value is <span id="largestVal"></span></h2>
+
+    <script>
+        //Find the lowest value in an array
+
+        function lowestVal (arr) {
+            let minVal = arr[0];
+
+            for(let i = 0; i < arr.length; i++) {
+                if (arr[i] < minVal) {
+                    minVal = arr[i];
+                }
+            }
+
+            let displayLowestVal = document.getElementById("lowestVal");
+            displayLowestVal.innerHTML = minVal;
+        }
+
+        lowestVal([7, 12, 9, 4, 11]);
+
+        //Find the second largest value in an array
+        function secondLargest (arr) {
+            if (arr.length < 1) {
+                return;
+            }
+
+            let largest = arr[0];
+            let secondLar = arr[1];
+
+            for(let i = 0; i < arr.length; i++) {
+                if(arr[i] > largest) {
+                    secondLar = largest;
+                    largest = arr[i];
+                }
+
+                if(arr[i] < largest && arr[i] > secondLar) {
+                    secondLar = arr[i];
+                }
+            }
+
+            let displaySecondLargest = document.getElementById("secondLargest");
+            displaySecondLargest.innerHTML = secondLar;
+        }
+
+        secondLargest([5, 12, 7, 50, 81, 30, 66]);
+
+        //Find the second lowest value in an array
+        function secondLowest (arr) {
+            let lowest = arr[0];
+            let secondLow = arr[1];
+
+            for(let i = 0; i < arr.length; i++) {
+                if (arr[i] < lowest) {
+                    secondLow = lowest;
+                    lowest = arr[i];
+                }
+
+                if (arr[i] > lowest && arr[i] < secondLow) {
+                    secondLow = arr[i];
+                }
+            }
+
+            let displaySecondLowest = document.getElementById("secondLowest");
+            displaySecondLowest.innerHTML = secondLow;
+        }
+
+        secondLowest([5, 12, 7, 50, 81, 30, 66]);
+
+        //Find the largest value in an array
+        function largestVal (arr) {
+            let maxVal = arr[0];
+
+            for (let i = 0; i < arr.length; i++) {
+                if (arr[i] > maxVal) {
+                    maxVal = arr[i];
+                }
+            }
+
+            let displayLargestVal = document.getElementById("largestVal");
+            displayLargestVal.innerHTML = maxVal;
+        }
+
+        largestVal([5, 12, 7, 50, 81, 30, 66]);
+    </script>
+</body>
+

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Counting Sort Algorithm Using JavaScript</title>
+    </head>
+
+    <body>
+        <h2 id="countingSort"></h2>
+
+        <script>
+            function countingSort(array) {
+                const maxVal = Math.max(...array);
+
+                const count = new Array(maxVal + 1).fill(0);
+
+                array.forEach(num => {
+                    count[num]++;
+                })
+
+                let sorted = [];
+                for(let i = 0; i <= maxVal; i++) {
+                    while(count[i] > 0) {
+                        sorted.push(i);
+                        count[i]--;
+                    }
+                }
+
+                return sorted;
+            }
+
+            let my_array = [4, 2, 2, 6, 3, 3, 1, 6, 5, 2, 3];
+            let sortedArray = countingSort(my_array);
+            let display = document.getElementById('countingSort');
+            display.innerText = "The sorted array is: " + sortedArray;
+        </script>
+    </body>
+</html>

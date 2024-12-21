@@ -1,29 +1,32 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Bubble Sort Algorithm</title>
+        <title>DSA using JavaScript</title>
     </head>
-
     <body>
-        <h2 id="bubble-sort">The sorted array is: </h2>
+        <h2 id="sorted-array"></h2>
 
         <script>
-            function bubbleSort(array) {
-                let n = array.length;
+            function bubbleSort(arr){
+                let n = arr.length;
+
                 for(let i = 0; i < n - 1; i++) {
                     let swapped = false;
+
                     for(let j = 0; j < n - i - 1; j++) {
-                        if(array[j] > array[j + 1]) {
-                            [array[j], array[j + 1]] = [array[j + 1], array[j]];
+                        if(arr[j] > arr[j + 1]) {
+                            [arr[j], arr[j + 1]] = [arr[j + 1], arr[j]];
                             swapped = true;
                         }
                     }
+
                     if(!swapped) {
                         break;
                     }
                 }
-                let display = document.getElementById('bubble-sort');
-                display.innerHTML = array.join(', ');
+
+                let sortedArray = document.getElementById('sorted-array');
+                sortedArray.innerHTML = arr.join(', ');
             }
 
             bubbleSort([64, 34, 25, 12, 22, 11, 90, 5]);

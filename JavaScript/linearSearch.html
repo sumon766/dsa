@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Linear Search Algorithm Using JavaScript</title>
+    </head>
+
+    <body>
+        <h2 id="linear"></h2>
+
+        <script>
+            function linearSearch(arr, targetVal) {
+                for(let i = 0; i < arr.length; i++) {
+                    if (arr[i] === targetVal) {
+                        return i;
+                    }
+                }
+
+                return -1;
+            }
+
+            let display = document.getElementById('linear');
+            display.innerHTML = linearSearch([3, 7, 2, 9, 5], 9);
+        </script>
+    </body>
+</html>
